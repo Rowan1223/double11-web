@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="gFKauq2TnNTOeUXPQUXyAV">
+<head data-page-node-id="bPQTvmI8GlSGYo9UNZB7ET">
+  <meta charset="UTF-8" data-page-node-id="AfAgRcTcuYFkI4JiSmQSVZ" />
+  <!-- 适配多终端：移动端按设备宽度渲染，禁止用户缩放以保证布局稳定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" data-page-node-id="HCvuSGONcm5gpnzbcgvGQO" />
+  <meta name="description" content="双十一购物节主题网页 —— 限时秒杀、领券中心、购物车一站式体验" data-page-node-id="D02AhR3ONJUEb8Gjke5LTr" />
+  <title>双十一购物狂欢节 · 11.11 全球狂欢</title>
+  <!-- 引入外部样式表，目录结构清晰：css 与 js 分离 -->
+  <link rel="stylesheet" href="css/style.css" data-page-node-id="4FgjVSHWCs1vfEahjMAhIN" />
+</head>
+<body data-page-node-id="1rfsuEWM7qcU7ovMx6JItD">
+
+  <!-- ===================== 顶部导航栏（吸顶） ===================== -->
+  <header class="navbar" id="navbar" data-page-node-id="8tNxIwb76lHNKTEisXHsFK">
+    <div class="nav-inner" data-page-node-id="GWfIBqQplbMe9QACqQgOSL">
+      <!-- 品牌 Logo -->
+      <a href="#top" class="logo" data-page-node-id="EzDzHFpGovRbsTBDVtUEOz">
+        <span class="logo-mark" data-page-node-id="Y2fICgQHT74pcmuFxBCEtW">11.11</span>
+        <span class="logo-text" data-page-node-id="wytPFEVUpVCPVDbMu5Rxe1">购物狂欢节</span>
+      </a>
+
+      <!-- 搜索框：用于商品关键字过滤（用户体验：操作简洁） -->
+      <div class="search-box" data-page-node-id="jHHEN6oA6Qd5LDGXUOlbpC">
+        <input type="text" id="searchInput" placeholder="搜索你喜欢的好物～" aria-label="搜索商品" data-page-node-id="KShgt1TobB8A4s6kDB6ddd" />
+        <button id="searchBtn" type="button" aria-label="搜索" data-page-node-id="c2J13gosrvCJxOaVhjIvft">🔍</button>
+      </div>
+
+      <!-- 购物车入口：右上角红点徽标显示数量 -->
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="打开购物车" data-page-node-id="DNzCcJ7mWFSEUea5Czt4hO">
+        🛒
+        <span class="cart-badge" id="cartBadge" data-page-node-id="Mf6rtVBNBSZvFNUN8MZYHu">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 锚点：返回顶部定位 -->
+  <span id="top" data-page-node-id="uKe42bTjt4qDNZgaXQMZzV"></span>
+
+  <!-- ===================== Hero 主视觉 + 全站倒计时 ===================== -->
+  <section class="hero" data-page-node-id="l3TPggyv9JTzoxmnieeIQn">
+    <div class="hero-bg" data-page-node-id="kn8nIHzGE1BAANgoS86AfS"></div>
+    <div class="hero-content" data-page-node-id="lFCZPDHI4O4r4k9G1hboDp">
+      <h1 class="hero-title" data-page-node-id="GtQV10NRkAgufDNkXESPiP">双十一 · 全球狂欢</h1>
+      <p class="hero-subtitle" data-page-node-id="Lic4R0jUA5532OQb3DvEAI">亿万好物 · 全年最低 · 错过再等一年</p>
+
+      <!-- 倒计时：距离 11.11 00:00 的剩余时间，JS 动态刷新 -->
+      <div class="countdown" id="globalCountdown" aria-label="距离双十一倒计时" data-page-node-id="H3bd7PSgMCLPHm92eCKD4n">
+        <div class="cd-item" data-page-node-id="DkxotEnsIHBrfCQTlydwME"><span id="cdDay" data-page-node-id="iyrMKXASbEg1xXgtCt1CGU">00</span><em data-page-node-id="0bopVL7oA74PktFCSiv8YB">天</em></div>
+        <div class="cd-sep" data-page-node-id="RlLFvZehpBFSk7oj9hwS1F">:</div>
+        <div class="cd-item" data-page-node-id="gk7ya2Ero9rkyjmmSR8N52"><span id="cdHour" data-page-node-id="MHSsaBPFHBvIEu3n5nxA59">00</span><em data-page-node-id="54EgmBZXoqgAFRoleaseG8">时</em></div>
+        <div class="cd-sep" data-page-node-id="SU2H56nIl767N5MH3evhsL">:</div>
+        <div class="cd-item" data-page-node-id="ra88R18QToW9WVYRUPKRRu"><span id="cdMin" data-page-node-id="FSlcdWpxv9vpkyrJDbnKLX">00</span><em data-page-node-id="OvOch37I6h0vEByJU56aKL">分</em></div>
+        <div class="cd-sep" data-page-node-id="SmGVXKtUJwOteUZVmZf7i6">:</div>
+        <div class="cd-item" data-page-node-id="Ul9VprfuWPG8XUOsAOSYb5"><span id="cdSec" data-page-node-id="1uIEtft1XtuavgZ2PhG0pa">00</span><em data-page-node-id="7vWQoSA92JPpfv3lsR8uft">秒</em></div>
+      </div>
+
+      <a href="#products" class="hero-cta" data-page-node-id="QAZUyBt7yAYx1tnpnh2TGG">立即逛会场 ↓</a>
+    </div>
+  </section>
+
+  <!-- ===================== 促销轮播图 ===================== -->
+  <section class="carousel" id="carousel" aria-label="促销轮播">
+    <!-- 轮播轨道：幻灯片由 JS 根据 banners 数据渲染 -->
+    <div class="carousel-track" id="carouselTrack"></div>
+    <!-- 左右切换箭头 -->
+    <button class="car-arrow prev" id="carPrev" type="button" aria-label="上一张">‹</button>
+    <button class="car-arrow next" id="carNext" type="button" aria-label="下一张">›</button>
+    <!-- 指示圆点：由 JS 生成 -->
+    <div class="car-dots" id="carDots"></div>
+  </section>
+
+  <!-- ===================== 领券中心 ===================== -->
+  <section class="section coupons" id="coupons" data-page-node-id="UVkVUs8NFmyYLL8uSLBo2V">
+    <h2 class="section-title" data-page-node-id="nlUCAEWF7oqHoDQ8rCPYs0">🎫 领券中心</h2>
+    <p class="section-desc" data-page-node-id="G1CCywGkCKxqO4UVL3ejA6">先领券再下单，叠满优惠更划算</p>
+    <div class="coupon-grid" id="couponGrid" data-page-node-id="X11JgVjLWGRwlzvv80OM5s">
+      <!-- 优惠券卡片由 JS 根据数据渲染，点击可领取 -->
+    </div>
+  </section>
+
+  <!-- ===================== 限时秒杀 ===================== -->
+  <section class="section seckill" id="seckill" data-page-node-id="MKnA7BTtyZTRxKmkq8oXRX">
+    <h2 class="section-title" data-page-node-id="mKVMGaxN6fFx1y2L5qvkck">⚡ 限时秒杀</h2>
+    <p class="section-desc" data-page-node-id="9hNAvJu0HnPSiSCNEuDt9C">手慢无！本场剩余时间：<span id="seckillTimer" class="seckill-timer" data-page-node-id="KJjz66ZleWhotP553QnYOE">00:00:00</span></p>
+    <div class="seckill-grid" id="seckillGrid" data-page-node-id="UVlfzCaHMqj6nGpWd98dR1">
+      <!-- 秒杀商品由 JS 渲染 -->
+    </div>
+  </section>
+
+  <!-- ===================== 商品会场（分类 + 筛选） ===================== -->
+  <section class="section products" id="products" data-page-node-id="XlnheVeN8BHYenRGol5Z7i">
+    <h2 class="section-title" data-page-node-id="nfSeFp89DCOhEX4yxGAB7O">🛍️ 好物会场</h2>
+
+    <!-- 分类筛选标签：点击切换不同品类（核心交互逻辑之一） -->
+    <div class="filter-tabs" id="filterTabs" data-page-node-id="oytHUsU7zpJIYLKwn5xuw0">
+      <button class="tab active" data-cat="all" data-page-node-id="26WdMGNWHKA1s5XitCOb4E">全部</button>
+      <button class="tab" data-cat="digital" data-page-node-id="zDt96aS01zyhTvIIqg1QUH">数码</button>
+      <button class="tab" data-cat="home" data-page-node-id="58djv0Fd8W6yjNUAMidpBH">家居</button>
+      <button class="tab" data-cat="beauty" data-page-node-id="1boxsorOFKwCbf3VVuYT5y">美妆</button>
+      <button class="tab" data-cat="food" data-page-node-id="9Xe0NBCEkAUt7Gv9oEPiaw">食品</button>
+      <button class="tab" data-cat="clothes">服饰</button>
+      <button class="tab" data-cat="baby">母婴</button>
+      <button class="tab" data-cat="books">图书</button>
+    </div>
+
+    <!-- 商品卡片网格：由 JS 根据分类/搜索条件动态渲染 -->
+    <div class="product-grid" id="productGrid" data-page-node-id="7mXFwdOO8Aer3Vmse5zWvw"></div>
+    <!-- 无结果时提示 -->
+    <p class="empty-tip" id="emptyTip" hidden data-page-node-id="66O8QdAQFp4v70SyhSlpGz">没有找到相关商品，换个关键词试试～</p>
+  </section>
+
+  <!-- ===================== 页脚 ===================== -->
+  <footer class="footer" data-page-node-id="Nr1dVOzUOiHmdtHO7ub7zR">
+    <p data-page-node-id="mdih67uI1W58D0rbXNmxtJ">双十一购物狂欢节 · 课程设计作品</p>
+    <p class="footer-sub" data-page-node-id="t7sYI6E9aoYmRAackHTadn">HTML + CSS + JavaScript 原生实现 · 响应式适配多终端</p>
+  </footer>
+
+  <!-- ===================== 购物车抽屉（侧边滑出） ===================== -->
+  <div class="cart-mask" id="cartMask" data-page-node-id="ZUcbUfGA002jIqSIGCBhQR"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="购物车" data-page-node-id="CnwRIKGE0f90FzwIpL7ntt">
+    <div class="cart-header" data-page-node-id="8YeMgSI2dUmNJEF1DvXHk3">
+      <h3 data-page-node-id="rZ9EdmVCPk3mMNJKimeVEf">我的购物车</h3>
+      <button class="cart-close" id="cartClose" type="button" data-page-node-id="GdX6UZVNfzS4RUBlLlnAAm">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody" data-page-node-id="KZL9A9BYHtUikVZ6BmKxpv">
+      <!-- 购物车条目由 JS 渲染 -->
+    </div>
+    <div class="cart-footer" data-page-node-id="8gEGpviCERKfvk9LFSZcue">
+      <div class="cart-total" data-page-node-id="nCUrA2o7eoEdiqYs8pM3wo">合计：<strong id="cartTotal" data-page-node-id="TRQi62HGxug1zTgFkcGVo0">¥0</strong></div>
+      <button class="checkout-btn" id="checkoutBtn" type="button" data-page-node-id="CiNPhlXXt7O1hv8LVNBgK6">去结算</button>
+    </div>
+  </aside>
+
+  <!-- 返回顶部悬浮按钮 -->
+  <button class="back-top" id="backTop" type="button" aria-label="返回顶部" data-page-node-id="NfUVq1F3uHiyKwp029wwP8">↑</button>
+
+  <!-- 轻提示 toast 容器 -->
+  <div class="toast" id="toast" data-page-node-id="qJbHqlc7C9d82kIfEdeOFg"></div>
+
+  <!-- 引入核心脚本 -->
+  <script src="js/app.js"></script>
+</body>
+</html>

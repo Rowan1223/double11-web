@@ -1,0 +1,354 @@
+/* =========================================================
+   双十一购物节主题样式表
+   设计风格：红金喜庆配色 + 圆角卡片 + 轻动效
+   适配策略：移动优先，断点 768px / 1024px
+   ========================================================= */
+
+/* ---------- 基础重置 ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* 主题色变量：方便统一调整 */
+  --red: #ff1d3c;        /* 主红（天猫红调） */
+  --red-deep: #c4001e;   /* 深红 */
+  --gold: #ffce3d;       /* 金色点缀 */
+  --orange: #ff6a00;     /* 橙黄渐变 */
+  --ink: #2b2b2b;        /* 正文深灰 */
+  --bg: #fff5f3;         /* 页面浅暖底 */
+  --card: #ffffff;
+  --shadow: 0 8px 24px rgba(255, 29, 60, .12);
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: inherit; border: none; }
+
+/* ---------- 顶部导航（吸顶） ---------- */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: linear-gradient(90deg, var(--red), var(--orange));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 10px 16px;
+  display: flex; align-items: center; gap: 16px;
+}
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #fff; }
+.logo-mark {
+  font-weight: 900; font-size: 22px;
+  background: var(--gold); color: var(--red-deep);
+  padding: 2px 8px; border-radius: 8px;
+  transform: rotate(-6deg);
+}
+.logo-text { font-size: 18px; font-weight: 700; }
+
+.search-box {
+  flex: 1; display: flex; background: #fff; border-radius: 999px; overflow: hidden;
+  max-width: 520px;
+}
+.search-box input {
+  flex: 1; border: none; outline: none; padding: 9px 16px; font-size: 14px;
+}
+.search-box button { padding: 0 16px; background: var(--gold); font-size: 16px; }
+
+.cart-btn {
+  position: relative; background: rgba(255,255,255,.18); color: #fff;
+  font-size: 20px; width: 44px; height: 44px; border-radius: 50%;
+  transition: transform .2s;
+}
+.cart-btn:hover { transform: scale(1.08); }
+.cart-badge {
+  position: absolute; top: -2px; right: -2px;
+  background: var(--gold); color: var(--red-deep);
+  font-size: 12px; font-weight: 700; min-width: 20px; height: 20px;
+  line-height: 20px; border-radius: 999px; padding: 0 5px;
+}
+
+/* ---------- Hero 主视觉 ---------- */
+.hero {
+  position: relative; min-height: 460px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; color: #fff; overflow: hidden;
+}
+/* 渐变背景 + 装饰光斑，纯 CSS 实现无需图片 */
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,206,61,.35), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,106,0,.4), transparent 45%),
+    linear-gradient(135deg, var(--red-deep), var(--red) 50%, var(--orange));
+}
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 35% 40%, #fff, transparent),
+    radial-gradient(3px 3px at 60% 80%, var(--gold), transparent),
+    radial-gradient(2px 2px at 85% 60%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 20%, #fff, transparent);
+  opacity: .6;
+}
+.hero-content { position: relative; z-index: 1; padding: 24px; }
+.hero-title {
+  font-size: 52px; font-weight: 900; letter-spacing: 2px;
+  text-shadow: 0 4px 16px rgba(0,0,0,.25);
+}
+.hero-subtitle { font-size: 18px; margin: 12px 0 24px; opacity: .95; }
+
+/* 倒计时 */
+.countdown { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 28px; }
+.cd-item {
+  background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.3);
+  border-radius: 10px; padding: 10px 12px; min-width: 64px;
+}
+.cd-item span { display: block; font-size: 30px; font-weight: 800; color: var(--gold); }
+.cd-item em { font-style: normal; font-size: 12px; opacity: .85; }
+.cd-sep { font-size: 28px; font-weight: 800; }
+
+.hero-cta {
+  display: inline-block; background: var(--gold); color: var(--red-deep);
+  font-weight: 800; font-size: 16px; padding: 12px 32px; border-radius: 999px;
+  text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  transition: transform .2s;
+}
+.hero-cta:hover { transform: translateY(-3px); }
+
+/* ---------- 通用区块 ---------- */
+.section { max-width: 1200px; margin: 0 auto; padding: 48px 16px; }
+.section-title { font-size: 28px; font-weight: 800; color: var(--red-deep); text-align: center; }
+.section-desc { text-align: center; color: #888; margin: 8px 0 28px; }
+
+/* ---------- 促销轮播图 ---------- */
+.carousel {
+  position: relative; max-width: 1200px; margin: 24px auto 0;
+  border-radius: 18px; overflow: hidden; box-shadow: var(--shadow);
+}
+.carousel-track { display: flex; transition: transform .5s ease; }
+.slide {
+  flex: 0 0 100%; min-height: 220px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 40px; color: #fff;
+}
+/* 不同幻灯片使用不同渐变，增强视觉变化 */
+.slide-1 { background: linear-gradient(120deg, #ff1d3c, #ff6a00); }
+.slide-2 { background: linear-gradient(120deg, #7b2ff7, #f107a3); }
+.slide-3 { background: linear-gradient(120deg, #0099ff, #00d4bb); }
+.slide-4 { background: linear-gradient(120deg, #ff8008, #ffc837); }
+.slide-text h3 { font-size: 30px; font-weight: 900; text-shadow: 0 3px 10px rgba(0,0,0,.2); }
+.slide-text p { font-size: 16px; margin: 8px 0 16px; opacity: .95; }
+.slide-btn {
+  display: inline-block; background: var(--gold); color: var(--red-deep);
+  font-weight: 800; padding: 8px 22px; border-radius: 999px;
+}
+.slide-emoji { font-size: 96px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.2)); }
+.car-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; font-size: 26px; line-height: 1;
+  background: rgba(0,0,0,.3); color: #fff; transition: background .2s;
+}
+.car-arrow:hover { background: rgba(0,0,0,.55); }
+.car-arrow.prev { left: 12px; }
+.car-arrow.next { right: 12px; }
+.car-dots {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.car-dots span {
+  width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5);
+  cursor: pointer; transition: width .2s, background .2s;
+}
+.car-dots span.active { width: 24px; border-radius: 6px; background: #fff; }
+
+/* ---------- 领券中心 ---------- */
+.coupon-grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.coupon {
+  position: relative; display: flex; align-items: center;
+  background: linear-gradient(135deg, #fff, #fff0ef);
+  border: 1px dashed var(--red); border-radius: 14px; padding: 16px;
+  box-shadow: var(--shadow);
+}
+/* 左侧金额 */
+.coupon-amount { font-size: 34px; font-weight: 900; color: var(--red); min-width: 96px; }
+.coupon-amount small { font-size: 16px; }
+.coupon-info { flex: 1; }
+.coupon-info b { display: block; font-size: 15px; }
+.coupon-info span { font-size: 12px; color: #999; }
+.coupon-btn {
+  background: linear-gradient(90deg, var(--red), var(--orange));
+  color: #fff; font-weight: 700; padding: 8px 14px; border-radius: 999px;
+  transition: opacity .2s;
+}
+.coupon-btn.claimed { background: #ccc; cursor: default; }
+/* 票券两侧的半圆缺口 */
+.coupon::before, .coupon::after {
+  content: ""; position: absolute; width: 14px; height: 14px;
+  background: var(--bg); border-radius: 50%; left: 88px;
+}
+.coupon::before { top: -7px; }
+.coupon::after { bottom: -7px; }
+
+/* ---------- 限时秒杀 ---------- */
+.seckill { background: linear-gradient(180deg, #fff, #fff5f3); border-radius: 24px; }
+.seckill-timer { color: var(--red); font-weight: 800; font-size: 18px; }
+.seckill-grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.seckill-card {
+  background: var(--card); border-radius: 14px; overflow: hidden;
+  box-shadow: var(--shadow); transition: transform .2s;
+}
+.seckill-card:hover { transform: translateY(-4px); }
+.seckill-thumb {
+  font-size: 64px; text-align: center; padding: 24px 0;
+  background: linear-gradient(135deg, #ffe9e6, #fff);
+}
+.seckill-card .info { padding: 12px 14px; }
+.seckill-card .name { font-size: 14px; font-weight: 600; }
+.seckill-card .price { color: var(--red); font-weight: 800; font-size: 18px; margin-top: 4px; }
+.seckill-card .price s { color: #bbb; font-size: 13px; font-weight: 400; margin-left: 6px; }
+/* 秒杀进度条 */
+.progress { height: 8px; background: #ffe0db; border-radius: 999px; margin-top: 8px; overflow: hidden; }
+.progress > i { display: block; height: 100%; background: linear-gradient(90deg, var(--red), var(--orange)); }
+.progress-text { font-size: 11px; color: #999; margin-top: 4px; }
+.seckill-card .buy {
+  width: 100%; margin-top: 10px; background: var(--red); color: #fff;
+  padding: 8px; border-radius: 999px; font-weight: 700;
+}
+
+/* ---------- 商品会场 ---------- */
+.filter-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px; }
+.tab {
+  background: #fff; border: 1px solid #ffd2cc; color: var(--red-deep);
+  padding: 8px 20px; border-radius: 999px; font-weight: 600; transition: all .2s;
+}
+.tab.active, .tab:hover { background: linear-gradient(90deg, var(--red), var(--orange)); color: #fff; border-color: transparent; }
+
+.product-grid {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.product-card {
+  background: var(--card); border-radius: 16px; overflow: hidden;
+  box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(255,29,60,.2); }
+.product-thumb {
+  font-size: 72px; text-align: center; padding: 28px 0;
+  background: linear-gradient(135deg, #fff3f1, #fff);
+}
+.product-card .info { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
+.product-card .tag {
+  align-self: flex-start; background: #ffeceb; color: var(--red);
+  font-size: 11px; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px;
+}
+.product-card .name { font-size: 15px; font-weight: 600; }
+.product-card .price { color: var(--red); font-weight: 800; font-size: 20px; margin-top: auto; }
+.product-card .price s { color: #bbb; font-size: 13px; font-weight: 400; margin-left: 6px; }
+.add-cart {
+  margin-top: 10px; background: linear-gradient(90deg, var(--red), var(--orange));
+  color: #fff; font-weight: 700; padding: 10px; border-radius: 999px;
+  transition: opacity .2s;
+}
+.add-cart:hover { opacity: .9; }
+.empty-tip { text-align: center; color: #999; margin-top: 20px; }
+
+/* ---------- 页脚 ---------- */
+.footer { text-align: center; padding: 32px 16px; background: var(--red-deep); color: #fff; }
+.footer-sub { font-size: 13px; opacity: .8; margin-top: 6px; }
+
+/* ---------- 购物车抽屉 ---------- */
+.cart-mask {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200;
+  opacity: 0; visibility: hidden; transition: opacity .3s;
+}
+.cart-mask.show { opacity: 1; visibility: visible; }
+.cart-drawer {
+  position: fixed; top: 0; right: 0; height: 100%; width: 360px; max-width: 90vw;
+  background: #fff; z-index: 201; transform: translateX(100%);
+  transition: transform .3s; display: flex; flex-direction: column;
+}
+.cart-drawer.show { transform: translateX(0); }
+.cart-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; border-bottom: 1px solid #eee;
+}
+.cart-header h3 { font-size: 18px; color: var(--red-deep); }
+.cart-close { background: #f2f2f2; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; }
+.cart-body { flex: 1; overflow-y: auto; padding: 12px 16px; }
+.cart-item {
+  display: flex; align-items: center; gap: 12px; padding: 12px 0;
+  border-bottom: 1px dashed #eee;
+}
+.cart-item .ci-thumb { font-size: 36px; }
+.cart-item .ci-info { flex: 1; }
+.cart-item .ci-name { font-size: 14px; font-weight: 600; }
+.cart-item .ci-price { color: var(--red); font-weight: 700; }
+.cart-item .ci-qty { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.qty-btn { width: 26px; height: 26px; border-radius: 6px; background: #f2f2f2; font-size: 16px; }
+.ci-remove { color: #bbb; font-size: 12px; background: none; }
+.cart-empty { text-align: center; color: #999; margin-top: 60px; }
+.cart-footer {
+  padding: 16px 20px; border-top: 1px solid #eee;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cart-total strong { color: var(--red); font-size: 22px; }
+.checkout-btn {
+  background: linear-gradient(90deg, var(--red), var(--orange)); color: #fff;
+  font-weight: 700; padding: 12px 28px; border-radius: 999px;
+}
+
+/* ---------- 返回顶部 ---------- */
+.back-top {
+  position: fixed; right: 18px; bottom: 24px; z-index: 150;
+  width: 46px; height: 46px; border-radius: 50%; font-size: 20px;
+  background: var(--red); color: #fff; box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transition: opacity .3s, transform .2s;
+}
+.back-top.show { opacity: 1; visibility: visible; }
+.back-top:hover { transform: scale(1.1); }
+
+/* ---------- Toast 轻提示 ---------- */
+.toast {
+  position: fixed; left: 50%; top: 80px; transform: translateX(-50%) translateY(-20px);
+  background: rgba(0,0,0,.8); color: #fff; padding: 10px 22px; border-radius: 999px;
+  font-size: 14px; z-index: 300; opacity: 0; visibility: hidden;
+  transition: opacity .3s, transform .3s;
+}
+.toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+/* =========================================================
+   响应式适配
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; }
+  .hero-subtitle { font-size: 15px; }
+  .cd-item span { font-size: 22px; }
+  .cd-item { min-width: 52px; padding: 8px; }
+  .nav-inner { gap: 10px; padding: 8px 12px; }
+  .logo-text { display: none; }          /* 小屏隐藏文字，保留 Logo 标记 */
+  .search-box { max-width: none; }
+  .section { padding: 32px 12px; }
+  .section-title { font-size: 22px; }
+  .slide { padding: 0 20px; min-height: 160px; }
+  .slide-text h3 { font-size: 20px; }
+  .slide-text p { font-size: 13px; }
+  .slide-emoji { font-size: 60px; }
+  .car-arrow { width: 34px; height: 34px; font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 30px; }
+  .countdown { gap: 4px; }
+  .cd-sep { font-size: 20px; }
+}
